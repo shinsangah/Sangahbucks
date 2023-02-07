@@ -1,0 +1,549 @@
+/* ICONS */
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+}
+
+/* COMMON */
+body {
+  color: #333;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  font-family: 'Nanum Gothic', sans-serif;
+  /* height: 3000px;
+  높이값 잠시 강제로 줘서 badge 스크롤 확인함 */
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+}
+
+.inner {
+  width: 1100px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.strong {
+  font-weight: 700;
+}
+
+/* BUTTON */
+.btn {
+  display: inline-block;
+  padding: 6px 20px;
+  /* contents box여야 padding 값이 먹음 */
+  border: 2px solid currentColor;
+  /* currentcolor 뜻이 뭐지 */
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+.btn--light-green {
+  /* -- modifier 라는 뜻임. 이름을 붙이는 처리 */
+  color: #076443;
+  border-color: #076443;
+  transition: 0.6s;
+}
+
+.btn--light-green:hover {
+  background-color: #076443;
+  border-color: black;
+  color: white;
+  text-decoration: underline;
+}
+
+/* 부모 요소에 시간을 넣어주는게
+바뀔 때나, 돌아갈 때나 시간이 잘 먹힘. */
+
+/* HEADER */
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: #f6f5ef;
+  border-top: 2px solid black;
+  border-bottom: 1px solid #eae7e2;
+  z-index: 1;
+}
+
+header>.inner {
+  height: 120px;
+}
+
+header .inner .logo {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  height: 75px;
+  width: 75px;
+}
+
+/* Sub menu */
+header .inner .sub-menu {
+  font-family: 'Avenir', sans-serif;
+  display: flex;
+  position: absolute;
+  top: 6px;
+  right: 50px;
+}
+
+header .inner .sub-menu .sub-menu__menu {
+  display: flex;
+}
+
+header .inner .sub-menu .sub-menu__menu>li {}
+
+header .inner .sub-menu .sub-menu__menu>li:not(:first-child)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  display: block;
+  width: 1px;
+  height: 13px;
+  background-color: #e5e5e5;
+}
+
+header .inner .sub-menu .sub-menu__menu>li>a {
+  display: block;
+  font-size: 13px;
+  padding: 10px 15px;
+  color: #656565;
+}
+
+header .inner .sub-menu .sub-menu__menu>li>a:hover {
+  text-decoration: underline;
+}
+
+header .inner .sub-menu .search {
+  position: relative;
+}
+
+header .inner .sub-menu .search>input {
+  width: 36px;
+  height: 34px;
+  padding: 4px 10px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 5px;
+  outline: none;
+  transition: width 0.4s;
+}
+
+header .inner .sub-menu .search>input:focus {
+  width: 190px;
+}
+
+header .inner .sub-menu .search>input:focus::placeholder {
+  color: #656565;
+}
+
+header .inner .sub-menu .search>.material-symbols-outlined {
+  position: absolute;
+  margin: auto;
+  right: 3px;
+  top: 0;
+  bottom: 0;
+  height: 24px;
+}
+
+/* MAIN MENU */
+header .inner .main-menu {
+  display: flex;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+header .inner .main-menu .item {}
+
+header .inner .main-menu .item .item__name {
+  font-size: 13px;
+  padding: 10px 22px 34px 22px;
+}
+
+header .inner .main-menu .item:hover .item__name {
+  cursor: pointer;
+  background-color: #2c2a29;
+  color: #669900;
+  text-decoration: underline;
+}
+
+
+header .inner .main-menu .item .item__contents {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 120px;
+  display: none;
+}
+
+header .inner .main-menu .item:hover .item__contents {
+  display: block;
+}
+
+header .inner .main-menu .item .item__contents .item__contents__menu {
+  background-color: #2c2a29;
+  padding: 20px 0px;
+}
+
+header .inner .main-menu .item .item__contents .item__contents__menu .inner {
+  display: flex;
+}
+
+header .inner .main-menu .item .item__contents .item__contents__menu .inner>li {
+  width: 200px;
+  padding-right: 20px;
+}
+
+header .inner .main-menu .item .item__contents .item__contents__menu .inner>li>a {
+  display: block;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+header .inner .main-menu .item .item__contents .item__contents__menu .inner>li>a:hover {
+  text-decoration: underline;
+}
+
+header .inner .main-menu .item .item__contents .item__contents__menu .inner>li>ul {}
+
+header .inner .main-menu .item .item__contents .item__contents__menu .inner>li>ul>li {
+  color: #999;
+  font-size: 12px;
+  margin: 5px 0;
+}
+
+header .inner .main-menu .item .item__contents .item__contents__menu .inner>li>ul>li:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* BADGES */
+header .badges {
+  position: absolute;
+  top: 150px;
+  right: 10px;
+  /* left: calc(1100px + (10vw - 1100px) / 2);
+  right 줘도 되는데 쓸데 없는 짓이기도 함 */
+}
+
+/* header 가 position: fixed 값 갖고 있기 때문에
+absolute 처리해서 뷰포트를 따라다님!
+부모 요소 계산 잘 해놓고, 얘는 따라다녀라 하면 편리함 */
+
+header. .badges .badge {
+  cursor: pointer;
+}
+
+header .badges .badge img {
+  width: 140px;
+}
+
+@media screen and (max-width: 1400px) {
+
+  /* 하나 하나 맞추다보니 요정도 값이라 노가다 함 */
+  header .badges {
+    left: calc (100vw-150px);
+  }
+}
+
+/* 정말 쓸데없는 짓이긴 한데 이런 것도 된다 라는걸 보여주심 */
+
+/* VISUAL */
+.visual {
+  position: relative;
+  /* 안에 이미지들이 비쥬얼을 토대로 포지션 잡아야 하고,
+  문서 상에서 쌓아나가야 하기 때문에
+  2개를 충족시켜야 할 것은 얘 밖에 없기 때문. */
+  margin-top: 120px;
+  /* 얘 자체를 margin-top: 120; 주어서 notice line이 밑에서부터.. 쌓여간다.
+  얘가 위치하는 공간 자체를 밀어버려서 아래에 위치하게됨 */
+  /* 문서 흐름을 따라가는건 static, relative
+  포지션이 header가 fixed 문서흐름을 떠있는 친구다.
+  그래서 헤더 아래부터 문서 흐름을 시작해야 함. 포지션은 뷰포트에 의해 변할 가능성 있어서
+  마진 값 120px 줘서 내릴 것이다.*/
+  background-image: url("../images/visual_bg.jpg");
+  /* background-size: contain; */
+  /* 짧은 쪽에 이미지가 맞춰진 것을 보니 컨테인 */
+  background-position: center;
+  background-size: 106% 100%;
+  /* 가로축, 세로축에 맞춰서 이미지를 106% 할건지 100% 할건지 지정
+  이 정도 하면 좀 맞아들어지는 것 같아서 이걸로 함.
+  대신에 position은 center로 넣어줘야 함. */
+  background-repeat: no-repeat;
+}
+
+.visual .inner {
+  position: relative;
+  height: 646px;
+  /* 어차피 비쥬얼 이너 파트에서 높이값 영향 받기 때문에 */
+}
+
+.visual .inner .slogan {
+  position: absolute;
+  /* 나머지 이미지들 신경 쓰이니까 html에서 주석처리하고 슬로건 먼저 작업함 */
+  display: flex;
+  /* flex-wrap: nowrap; */
+  /* 수평으로 쌓어야 하는데 수직으로 쌓이게 변경 */
+  width: 340px;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  top: 180px;
+  left: -130px;
+  height: 300px;
+}
+
+.visual .inner .slogan img {
+  width: 340px;
+}
+
+.visual .inner .slogan .btn {
+  position: absolute;
+  top: 250px;
+}
+
+.visual .inner img {
+  position: absolute;
+}
+
+.visual .inner .item-1 {
+  width: 290px;
+  top: 120px;
+  left: 340px;
+}
+
+.visual .inner .item-2 {
+  width: 310px;
+  top: 208px;
+  left: 538px;
+}
+
+.visual .inner .item-3 {
+  width: 310px;
+  top: 160px;
+  left: 762px;
+}
+
+/* position 을 잡는 기준을 inner 에 두고,
+top,left, bottom 움직여서 이미지를 잘 맞추는게 중요한 기준 */
+
+/* NOTICE */
+.notice {
+  position: relative;
+}
+
+.notice .notice-line {
+  position: relative;
+  font-weight: 700;
+}
+
+.notice .notice-line .bg-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #111111;
+}
+
+.notice .notice-line .bg-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #f6f5ef;
+}
+
+.notice .notice-line .inner {
+  height: 62px;
+  display: flex;
+}
+
+.notice .notice-line .inner .inner__left {
+  position: relative;
+  width: 60%;
+  height: 100%;
+  background-color: #111111;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.notice .notice-line .inner .inner__left h1 {
+  position: absolute;
+  left: 0;
+  font-size: 16px;
+}
+
+.notice .notice-line .inner .inner__left div {
+  position: absolute;
+  left: 80px;
+  font-size: 14px;
+}
+
+.notice .notice-line .inner .inner__left a {
+  position: absolute;
+  right: 20px;
+  color: white;
+}
+
+.notice .notice-line .inner .inner__left a span {
+  font-size: 36px;
+  vertical-align: bottom;
+  /* 실제 글자의 제일 바닥으로 처리가 된다. */
+}
+
+.notice .notice-line .inner .inner__right {
+  position: relative;
+  width: 40%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #f6f5ef;
+}
+
+.notice .notice-line .inner .inner__right h1 {
+  position: absolute;
+  right: 120px;
+  font-size: 16px;
+}
+
+.notice .notice-line .inner .inner__right a {
+  position: absolute;
+  right: 20px;
+  color: black;
+}
+
+.notice .notice-line .inner .inner__right a span {
+  font-size: 36px;
+  /* vertical-align: bottom;
+  얘는 inline 레벨에서만 작동하는 positino이니 작동안할거다.
+  글자에만 사용 가능함. 그래서 block 진행. */
+  display: block;
+}
+
+/* REWARDS */
+
+.rewards {
+  position: relative;
+  background-color: #1e3932;
+
+}
+
+.rewards .inner {
+  position: relative;
+  padding: 30px 0 40px 0;
+  display: flex;
+}
+
+.rewards .inner .rewards__logo {
+  /* 다시 확인해주신다고 함! */
+  display: flex;
+  width: 260px;
+  justify-content: center;
+  align-items: center;
+}
+
+.rewards .inner .rewards__logo img {
+  display: block;
+  width: 176px;
+}
+
+.rewards .inner .rewards__items {
+  flex-grow: 1;
+
+}
+
+
+.rewards .inner .rewards__items .rewards__items__register {
+  position: relative;
+  padding-bottom: 12px;
+  /* border-bottom: 0.5px solid #c8c8c8; */
+  /* 0.5px 는 지원이 안됨. 1px 까지만 되는듯. 근데 좀 두꺼워서 box-shadow 사용 */
+  box-shadow: 0 0.5px #c8c8c8;
+  /* x축 y축 */
+}
+
+.rewards .inner .rewards__items .rewards__items__register p {
+  display: block;
+  font-size: 17px;
+  color: white;
+}
+
+.rewards .inner .rewards__items .rewards__items__register p.subject {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.rewards .inner .rewards__items .rewards__items__register .buttons {
+  position: absolute;
+  right: 0;
+  bottom: 12px;
+}
+
+.rewards .inner .rewards__items .rewards__items__register .buttons .btn--register {
+  background-color: #00704a;
+  border-color: #00704a;
+  color: white;
+  margin-right: 6px;
+  font-weight: 700;
+}
+
+.rewards .inner .rewards__items .rewards__items__register .buttons .btn--login,
+.rewards .inner .rewards__items .rewards__items__card .buttons .btn--login
+
+/* 아래 기입한 것들 카피해서 동시에 적용하도록 , 콤마 활용해서 활용 */
+  {
+
+  border-color: white;
+  color: white;
+  font-weight: 700;
+
+}
+
+/* , 콤마 찍어서 동일한 CSS hover 적용하겠다! */
+.rewards .inner .rewards__items .rewards__items__register .buttons .btn--register:hover,
+.rewards .inner .rewards__items .rewards__items__register .buttons .btn--login:hover,
+.rewards .inner .rewards__items .rewards__items__card .buttons .btn--login:hover {
+  text-decoration: underline;
+}
+
+
+.rewards .inner .rewards__items .rewards__items__card {
+  position: relative;
+  /* 아래 btn 포지션 잡아줘야해서 기준점 relative 잡아줘야 함 */
+
+}
+
+.rewards .inner .rewards__items .rewards__items__card p {
+  display: block;
+  font-size: 14px;
+  color: white;
+  margin-top: 20px;
+}
+
+.rewards .inner .rewards__items .rewards__items__card .buttons {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+/* CSS, html 강사님도 헤매심. */
+/* 내일 스타벅스 클론 끝남, 자바 기초부터 스타벅스에 java 넣는 것도 함.. */
