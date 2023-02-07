@@ -42,7 +42,7 @@ img {
   padding: 6px 20px;
   /* contents box여야 padding 값이 먹음 */
   border: 2px solid currentColor;
-  /* currentcolor 뜻이 뭐지 */
+  /* currentcolor 값을 상속받은 color 속성에서 대신 가져옴 */
   border-radius: 5px;
   font-size: 15px;
 }
@@ -188,6 +188,8 @@ header .inner .main-menu .item .item__contents {
   left: 0;
   top: 120px;
   display: none;
+  /* display: block */
+  /* 개발자 도구에서 확인하려고 none 없애고 block 잠깐 해놈 */
 }
 
 header .inner .main-menu .item:hover .item__contents {
@@ -434,7 +436,7 @@ top,left, bottom 움직여서 이미지를 잘 맞추는게 중요한 기준 */
 .notice .notice-line .inner .inner__right a span {
   font-size: 36px;
   /* vertical-align: bottom;
-  얘는 inline 레벨에서만 작동하는 positino이니 작동안할거다.
+  얘는 inline 레벨에서만 작동하는 position이니 작동안할거다.
   글자에만 사용 가능함. 그래서 block 진행. */
   display: block;
 }
