@@ -105,6 +105,20 @@ img {
   text-decoration: underline;
 }
 
+.btn--black {
+  border-color: #000;
+  color: #000;
+  cursor: pointer;
+}
+
+.btn--black:hover {
+  background-color: #000;
+  color: white;
+  text-decoration: underline;
+  /* transition: 0.6s; */
+  /* hover 해도 0.6초 동안 안먹음 */
+}
+
 /* HEADER */
 header {
   position: fixed;
@@ -830,12 +844,31 @@ right 0 주고, 하는 등 */
 
 .magazine {
   position: relative;
-  height: 380px;
+  height: 400px;
   background-image: url("../images/magazine_bg.png");
   background-position: center 30px;
+  /* 두 방향으로 설정,
+  수평으로는 가운데에 맞추겠다. 수직으로는 픽셀값으로 내릴 수 있다.
+  위에서 30px 아래로 내린다. */
   margin-top: 25px;
   background-repeat: no-repeat;
+  /* 이미지가 깨지면 페이지에 대한 신뢰도가 깨지니까 */
 }
+
+/* .magazine {
+  position: relative;
+  height: 400px;
+  background-image: url("../images/magazine_bg.png");
+  background-size: cover;
+  background-position: center 50px;
+  background 배경이 흰색이라 50px 밀어도 여기가 연결되어 보이는거다.
+  이미지가 배경색이 흰색이 아니였으면 다르게 처리 했었어야 함.
+  background-repeat: no-repeat;
+  overflow: hidden;
+  overfolow: hidden 미학적인 용도로 숨긴다.
+  글자 콘텐츠가 있으면 콘텐츠 그냥 잘라버린다.
+  수업시간에 같이 한 것, 이렇게도 설정함.
+} */
 
 .magazine .inner img.magazine__contents {
   position: absolute;
@@ -847,8 +880,24 @@ right 0 주고, 하는 등 */
 .magazine .inner img.magazine__item {
   position: absolute;
   width: 348px;
-  top: -25px;
   right: 50px;
+  top: -25px;
+  opacity: 0;
+  transition: 1.5s;
+}
+
+/* .magazine .inner img.magazine__item {
+  position: absolute;
+  width: 348px;
+  right: 50px;
+  top: 0px;
+  수업시간에 같이 한 것, 이렇게도 설정함.
+  opacity: 0;
+  transition: 1.5s;
+} */
+
+.magazine:active .inner img.magazine__item {
+  opacity: 1;
 }
 
 .magazine .inner .btn.btn--black {
@@ -857,5 +906,120 @@ right 0 주고, 하는 등 */
   left: 295px;
 }
 
-.magazine:active .inner img.magazine__contents,
-.magazine:active .inner img.magazine__item {}
+/* ** 글자랑 버튼 컨테이너 묶어서 중앙정렬,
+0 0 주고 마진 오토 주고 하는게 더 정확하긴 하다. */
+
+/* STORE */
+
+.store {
+  position: relative;
+  height: 400px;
+  background-image: url("../images/store_bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* no-repeat 일단 넣어놓는거 */
+  overflow: hidden;
+  /* 이미지가 다른데로 흘러가거나 하는 것 없애려고 hidden 처리 */
+}
+
+.store .inner {
+  height: 400px;
+  /* 집 아래에 붙이려고 inner에 400px 라고 높이 값 지정해줌 */
+}
+
+.store .inner .store__text-1 {
+  position: absolute;
+  width: 385px;
+  top: 100px;
+  right: 50px;
+  /* 일단 애가 있어야 할 곳에 존재 시키고, 애니메이터 효과 주기 */
+  transform: translateX(800px);
+  transition: 2s;
+}
+
+.store .inner .store__text-2 {
+  position: absolute;
+  width: 366px;
+  top: 170px;
+  right: 69px;
+  transform: translateX(800px);
+  transition: 2.5s;
+}
+
+.store .inner .btn.btn--black {
+  position: absolute;
+  top: 290px;
+  /* padding을 줘서 글자 크기 잡아주고 있다. */
+  right: 330px;
+  transform: translateX(800px);
+  /* transition: 3s; */
+  /* hover도 3초 동안 블랙처리가 되기 때문에 고쳐줘야 함 */
+}
+
+.store:active .inner .store__text-1,
+.store:active .inner .store__text-2 {
+  transform: translateX(0);
+  /* 800px 씩 오른쪽으로 밀려있기 때문에 0 줘서 다시 너네 자리로 돌아와라 */
+}
+
+.store:active .inner .btn.btn--black {
+  transform: translateX(0);
+  transition: transform 3s, background-color 0.6s, color 0.6s, text-decoration 0.6s;
+  /* 조금 귀찮겠지만 각각 속성별로 시간을 이렇게 걸어준다.
+  하나의 요소에 다양한 transform, transition 원하는 속성에 맞게 시간을 지정해줄 수 있다. */
+  /* 순서 공식문서 같은거 잘 확인해서 적용하면 됨 */
+
+  /* transition이 걸리면 모든 속성이 걸리는 것에 초수가 걸린다.
+  그래서 transform에 해당하는 속성만 3초만 이라는 뜻! 
+  active 일 때는 transform만 3초이고, hover 일 때는 위에 지정한 1.5초 동안 됨! */
+}
+
+.store .inner .store__img-1 {
+  position: absolute;
+  width: 366px;
+  top: 0px;
+  /* 이거 원래 위쪽이 좀 잘린 이미지임 */
+  left: 70px;
+  opacity: 0;
+  transition: 1.5s
+}
+
+.store .inner .store__img-2 {
+  position: absolute;
+  width: 228px;
+  top: 150px;
+  left: 300px;
+  opacity: 0;
+  transition: 1.5s
+}
+
+.store .inner .store__img-3 {
+  position: absolute;
+  width: 348px;
+  top: -60px;
+  /* 이미지가 생각보다 커서 -60px 줄거임 */
+  /* overflow: hidden 쳐서 윗부분 침범하는거 안보이는거임 */
+  left: 430px;
+  opacity: 0;
+  transition: 1.5s
+}
+
+.store .inner .store__img-4 {
+  position: absolute;
+  width: 230px;
+  right: -70px;
+  bottom: 0;
+  /* 자식들의 크기 높이 요소를 자동으로 합산해서 inner 높이 auto 임
+  inner 라는 친구는 높이값을 가질 수 없는 상황,
+  그래서 0 px 매거진 아래 바닥에 존재하고 있는 상황이 발생한거임 */
+  opacity: 0;
+  transition: 1.5s
+}
+
+.store:active .inner .store__img-1,
+.store:active .inner .store__img-2,
+.store:active .inner .store__img-3,
+.store:active .inner .store__img-4 {
+  opacity: 1;
+}
