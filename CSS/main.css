@@ -115,6 +115,7 @@ img {
   background-color: #000;
   color: white;
   text-decoration: underline;
+
   /* transition: 0.6s; */
   /* hover 해도 0.6초 동안 안먹음 */
 }
