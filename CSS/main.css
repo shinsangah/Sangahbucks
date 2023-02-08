@@ -705,7 +705,7 @@ Visual처럼 쌓여있는 애들은 left 부터 순서대로 하는게 좋음.
   background-size: cover;
   /* 단색 이미지가 아니니까 긴 축에 이미지에 맞추겠다. 지정. */
   /* container는 repeat이 생길 가능성이 높아짐. */
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
   /* cover 해도 생기면 안되니까 no-repeat 줌 */
   bottom: 0;
   opacity: 0;
@@ -725,7 +725,7 @@ Visual처럼 쌓여있는 애들은 left 부터 순서대로 하는게 좋음.
   background-image: url("../images/ethiopia_after.png");
   background-size: cover;
   /* 얘도 안전을 위해서 cover */
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
   /* 특정공간을 가득 채우는 상황을 없도록 처리 */
   opacity: 0;
   /* 안보이게 처리 */
@@ -768,29 +768,47 @@ Visual처럼 쌓여있는 애들은 left 부터 순서대로 하는게 좋음.
 }
 
 /* FAVORITE */
-
 .favorite {
   position: relative;
+  height: 800px;
   background-image: url("../images/fav_bg.png");
   background-size: cover;
+  /* 긴 축에 화면에 맞추겠다. */
   background-attachment: fixed;
-  height: 800px;
+  /* 스크롤에 따라서 위로 올라가는게 아니라 뷰포트를 따라오는 것 같이 작동 */
 }
 
-.favorite .inner img.favorite__text1 {
+/* 텍스트랑 버튼들 div로 묶어서 움직여도 됨!
+right 0 주고, 하는 등 */
+
+.favorite .inner img.favorite__text-1 {
   position: absolute;
   width: 258px;
   top: 120px;
-  left: 810px;
-  transform: translate(-700px);
+  left: 108px;
+  /* 이너 기준으로 움직임 */
+  /* 강사님거랑 다름 .. */
+  transform: translateX(-700px);
+  opacity: 0;
+  transition: 2s;
 }
 
-.favorite .inner img.favorite__text2 {
+.favorite .inner img.favorite__text-2 {
   position: absolute;
   width: 362px;
   top: 370px;
-  left: 700px;
-  transform: translate(-700px);
+  /* 이너 기준으로 움직임 */
+  /* left: 700px; */
+  transform: translateX(-700px);
+  opacity: 0;
+  transition: 2.5s;
+  /* 마치 delay 준 것처럼 잡아줌 */
+}
+
+.favorite:active .inner img.favorite__text-1,
+.favorite:active .inner img.favorite__text-2 {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .favorite .inner img.favorite__item {
@@ -804,4 +822,40 @@ Visual처럼 쌓여있는 애들은 left 부터 순서대로 하는게 좋음.
   position: absolute;
   top: 580px;
   left: 238px;
+  /* 정확한 수치 아님. 북마크를 기준으로 근사값으로 계산. */
 }
+
+/* 축별로 다르게 주기 */
+/* MAGAZINE */
+
+.magazine {
+  position: relative;
+  height: 380px;
+  background-image: url("../images/magazine_bg.png");
+  background-position: center 30px;
+  margin-top: 25px;
+  background-repeat: no-repeat;
+}
+
+.magazine .inner img.magazine__contents {
+  position: absolute;
+  width: 588px;
+  top: 135px;
+  left: 60px;
+}
+
+.magazine .inner img.magazine__item {
+  position: absolute;
+  width: 348px;
+  top: -25px;
+  right: 50px;
+}
+
+.magazine .inner .btn.btn--black {
+  position: absolute;
+  top: 270px;
+  left: 295px;
+}
+
+.magazine:active .inner img.magazine__contents,
+.magazine:active .inner img.magazine__item {}
