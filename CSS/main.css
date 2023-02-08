@@ -29,6 +29,7 @@ img {
 .inner {
   width: 1100px;
   margin: 0 auto;
+  /* 위 아래 여백 주지 않고, 대표적인 중앙정렬 속성 */
   position: relative;
 }
 
@@ -45,6 +46,7 @@ img {
   /* currentcolor 값을 상속받은 color 속성에서 대신 가져옴 */
   border-radius: 5px;
   font-size: 15px;
+  /* 이게 글로벌 버튼 컨텐츠임. 이걸로 앞으로 btn 하면 통일됨 */
 }
 
 .btn--light-green {
@@ -61,8 +63,47 @@ img {
   text-decoration: underline;
 }
 
+.btn--brown {
+  color: #633510;
+  border-color: #633510;
+  transition: 0.6s;
+}
+
+.btn--brown:hover {
+  background-color: #633510;
+  color: white;
+  text-decoration: underline;
+}
+
+.btn--gold {
+  border-color: #966932;
+  color: #966932;
+  transition: 0.6s;
+}
+
+.btn--gold:hover {
+  background-color: #966932;
+  color: white;
+  text-decoration: underline;
+}
+
+/* 버튼에 색 지정해서 다 넣어주기 */
+
 /* 부모 요소에 시간을 넣어주는게
 바뀔 때나, 돌아갈 때나 시간이 잘 먹힘. */
+
+.btn--white {
+  border-color: #fff;
+  color: #fff;
+  transition: 0.6s;
+  cursor: pointer;
+}
+
+.btn--white:hover {
+  background-color: #fff;
+  color: black;
+  text-decoration: underline;
+}
 
 /* HEADER */
 header {
@@ -186,7 +227,9 @@ header .inner .main-menu .item .item__contents {
   position: fixed;
   width: 100%;
   left: 0;
+  /* 뷰포트를 기준으로 왼쪽 0에 기준시켜야 메뉴 바로 밑으로 정렬 안됨 */
   top: 120px;
+  /* 헤더 바로 밑에 붙을 수 있도록 혹시 모르니까 헤더만큼은 위에서 떨어트림. 더 잘 고정시킬 수 있게 */
   display: none;
   /* display: block */
   /* 개발자 도구에서 확인하려고 none 없애고 block 잠깐 해놈 */
@@ -238,9 +281,11 @@ header .inner .main-menu .item .item__contents .item__contents__menu .inner>li>u
 /* BADGES */
 header .badges {
   position: absolute;
+  /* 헤더를 기준으로 얘네가 absolute 값 가지게,
+  fixed를 absolute가 따라다니는 것임. 얘네도 fixed 처럼 움직이는 것임. */
   top: 150px;
   right: 10px;
-  /* left: calc(1100px + (10vw - 1100px) / 2);
+  /* left: calc(1100px + (100vw - 1100px) / 2);
   right 줘도 되는데 쓸데 없는 짓이기도 함 */
 }
 
@@ -410,6 +455,8 @@ top,left, bottom 움직여서 이미지를 잘 맞추는게 중요한 기준 */
   font-size: 36px;
   vertical-align: bottom;
   /* 실제 글자의 제일 바닥으로 처리가 된다. */
+  /* 알파벳 g 생각하면 꼬리까지 baseline이 좀 내려오기 때문에
+  그림이 약간 위로 뜬 현상이 나타날 것이다. */
 }
 
 .notice .notice-line .inner .inner__right {
@@ -480,7 +527,7 @@ top,left, bottom 움직여서 이미지를 잘 맞추는게 중요한 기준 */
   /* border-bottom: 0.5px solid #c8c8c8; */
   /* 0.5px 는 지원이 안됨. 1px 까지만 되는듯. 근데 좀 두꺼워서 box-shadow 사용 */
   box-shadow: 0 0.5px #c8c8c8;
-  /* x축 y축 */
+  /* x축 y축 - y축에서만 그림자 효과 주는 방법 */
 }
 
 .rewards .inner .rewards__items .rewards__items__register p {
@@ -547,5 +594,214 @@ top,left, bottom 움직여서 이미지를 잘 맞추는게 중요한 기준 */
   bottom: 0;
 }
 
+/* 23.02.07 화 */
 /* CSS, html 강사님도 헤매심. */
 /* 내일 스타벅스 클론 끝남, 자바 기초부터 스타벅스에 java 넣는 것도 함.. */
+
+/* ELSALVADOR */
+.elsalvador {
+  position: relative;
+  /* relative 위에 있는 아이템에서 자연스럽게 쌓이면서 자기 자리 찾아갈 것임 */
+  height: 570px;
+  /* 어차피 넓이는 뷰포트 값에서 받아올 것이기 때문에 높이만 지정 */
+  background-image: url('../images/elsalvador_bg.jpg');
+  background-size: cover;
+  /* 105% 긴 축을 기준으로 딱 맞추는게 아니라 더 키워서 맞추겠다. 이렇게 되어있었다고 함.
+  대신 105% 하면 이미지가 커지니까 이미지가 밀려서  background image가 가운데로 오도록 작업 할 것임. */
+  background-position: center;
+  overflow: hidden;
+  /* 이미지가 밀려 나갈 수도 있으니까 hidden 처리 */
+}
+
+.elsalvador .inner {
+  position: relative;
+  /* background-color: skyblue; */
+  /* 위치 확인하려고 컬러 줌! */
+  height: 100%;
+  /* 부모 요소에서 받아온다. */
+}
+
+.elsalvador .inner img.elsalvador__item {
+  width: 310px;
+  /* 스타벅스 실제 그림이 가로 310임 */
+  position: absolute;
+  /* 왔다갔다 시킬거니까 absolute 해놓음
+  부모가 누군지에 따라 잘 움직임. 문서 흐름에서 위에서 붕붕 날아다녀야
+  다른 요소들 안밀고 위치 선정 잘 될 수 있음*/
+  top: 70px;
+  left: 100px;
+  transform: translateX(-700px);
+  opacity: 0;
+  transition: 2.5s;
+  /* 2.5초에 걸쳐서 이동이 일어나게 됨 */
+}
+
+/* 홈페이지에서 드래그가 되면 이미지이고, 드래그 안되면 배경이미지다.
+간단하게 확인할 때 좋음. */
+
+/* img 태그인데 저거다. 하고 지정해주어도 됨. */
+
+.elsalvador .inner .elsalvador__contents {
+  position: absolute;
+  width: 339px;
+  /* 스타벅스 가니까 실제 w이 339px임 */
+  top: 180px;
+  right: 140px;
+  /* 디자인 적인 요소는 top이나 이런걸로 위치 지정해주는게 도움이 됨 */
+  transform: translateX(900px);
+  /* active 마우스 때면 밀려나는 값임 */
+  opacity: 0;
+  /* 투명해졌다가 나타나게 만들거임 */
+  transition: 2.5s;
+  /* 동일한 시간대에 맞아야 delay가 없어질 것임 */
+}
+
+.elsalvador:active .inner img.elsalvador__item,
+.elsalvador:active .inner .elsalvador__contents {
+  opacity: 1;
+  transform: translateX(0);
+  /* 원래 있어야 할 곳으로 다시 리턴 시킴 */
+  /* translate 돌려놓고 0으로 다시 돌려놓기 */
+}
+
+.elsalvador .inner .elsalvador__contents .btn.btn--brown {
+  margin-top: 40px;
+}
+
+/* .btn : 글로벌 버튼 컨텐츠도 가지고 있고, btn--brown도 있다 라고 저장 */
+
+/* 아까 중간에 뭐 지운거 뭔지..
+이미지 크기부터 지정하고 움직여라. absolute 지정 해라.
+Visual처럼 쌓여있는 애들은 left 부터 순서대로 하는게 좋음.
+수학적으로 다 더하면 여러개 쌓여있을 때는 한축으로 미는게 편리하다. */
+
+/* 클래스명이 같으면 맨 위에 있는 .inner 를 기준으로 잡을 수 있었던거임 */
+/* ETHIOPIA */
+.ethiopia {
+  position: relative;
+  height: 400px;
+  background-image: url("../images/ethiopia_bg.png");
+  /* background-position: center; */
+  /* 이미지가 원체 딱 맞아떨어져서 center 안줘도 됨
+  삐져나가지 않도록 안전하게 hidden 정도만 걸어줌. */
+  overflow: hidden;
+  /* 자기 공간에서 나가는 애들 안보이게 처리 */
+}
+
+/* 높이 속성 안주면 오토가 되버려서 자식이긴 하나, 값을 받아올 수 없어서
+자식들이 높이 값을 제공하다가 공중으로 뜨니까 높이값 못받아서 남은 애들의 높이값만 못받아서 받아오기 때문에 */
+
+.ethiopia::before {
+  content: "";
+  /* content: "" 이걸 안넣어주면 아래 요소 전부 다 무시 당한다. */
+  position: absolute;
+  /* 기본적으로 inline 요소 들어가는데 display는 block 자동으로 된다.
+  저건 자동적으로 공간을 주는거기 때문에.. */
+  left: -50px;
+  width: 425px;
+  /* 사이즈 참조했을 때 425px 나왔음 */
+  height: 404px;
+  background-image: url("../images/ethiopia_before.png");
+  background-size: cover;
+  /* 단색 이미지가 아니니까 긴 축에 이미지에 맞추겠다. 지정. */
+  /* container는 repeat이 생길 가능성이 높아짐. */
+  background-repeat: no-repeat;
+  /* cover 해도 생기면 안되니까 no-repeat 줌 */
+  bottom: 0;
+  opacity: 0;
+  /* 안보이게 처리 */
+}
+
+.ethiopia::after {
+  content: "";
+  /* 빈 문자열 넣어주기 */
+  position: absolute;
+  width: 361px;
+  height: 404px;
+  /* 넓이, 높이값 기존 것 맞춰주면 됨 */
+  bottom: 0;
+  right: 0;
+  /* 아래쪽, 오른쪽에서도 바짝 붙이게 둘 다 0 */
+  background-image: url("../images/ethiopia_after.png");
+  background-size: cover;
+  /* 얘도 안전을 위해서 cover */
+  background-repeat: no-repeat;
+  /* 특정공간을 가득 채우는 상황을 없도록 처리 */
+  opacity: 0;
+  /* 안보이게 처리 */
+}
+
+.ethiopia:active::before,
+.ethiopia:active::after {
+  transition: 1.5s;
+  /* 1.5초로 잡아져있음 */
+  opacity: 1;
+}
+
+.ethiopia .inner img.ethiopia__contents {
+  position: absolute;
+  width: 496px;
+  left: 0;
+  /* 바짝 붙어있는 것 같아서 */
+  top: 120px;
+  /* 확인해보니 top은 120px로 잡아놓으심 */
+}
+
+.ethiopia .inner img.ethiopia__item {
+  position: absolute;
+  left: -500px;
+  opacity: 0;
+}
+
+.ethiopia:active .inner img.ethiopia__item {
+  transition: 1.5s;
+  transition-delay: 0.8s;
+  opacity: 1;
+}
+
+.ethiopia .inner .btn.btn--gold {
+  position: absolute;
+  left: 260px;
+  top: 270px;
+  /* 저 느낌인 것 같다고 지정해놓으신 값임
+  어찌 됐던 absolute 주고 inner 포지션 잡은 것임 */
+}
+
+/* FAVORITE */
+
+.favorite {
+  position: relative;
+  background-image: url("../images/fav_bg.png");
+  background-size: cover;
+  background-attachment: fixed;
+  height: 800px;
+}
+
+.favorite .inner img.favorite__text1 {
+  position: absolute;
+  width: 258px;
+  top: 120px;
+  left: 810px;
+  transform: translate(-700px);
+}
+
+.favorite .inner img.favorite__text2 {
+  position: absolute;
+  width: 362px;
+  top: 370px;
+  left: 700px;
+  transform: translate(-700px);
+}
+
+.favorite .inner img.favorite__item {
+  position: absolute;
+  width: 912px;
+  top: 100px;
+  right: -260px;
+}
+
+.favorite .inner .btn.btn--white {
+  position: absolute;
+  top: 580px;
+  left: 238px;
+}
