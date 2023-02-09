@@ -14,8 +14,8 @@ body {
   font-weight: 400;
   line-height: 1.4;
   font-family: 'Nanum Gothic', sans-serif;
-  /* height: 3000px;
-  높이값 잠시 강제로 줘서 badge 스크롤 확인함 */
+  /* height: 5000px; */
+  /* 높이값 잠시 강제로 줘서 badge 스크롤 확인함 */
 }
 
 a {
@@ -1023,4 +1023,164 @@ right 0 주고, 하는 등 */
 .store:active .inner .store__img-3,
 .store:active .inner .store__img-4 {
   opacity: 1;
+}
+
+/* FOOTER */
+footer {
+  position: relative;
+  background-color: #2c2a29;
+  /* margin 주면 하얀색 부분이 튀어나옴 */
+  padding: 30px 0;
+}
+
+footer .inner {
+  /* 비쥬얼 같은 애들은 높이값을 주고 그것을 바탕으로 포지션을 잡거나 해야되는데
+  bg 이미지를 적용해야되서 높이값 지정 했기 때문에, 얘는 bc 컬러 줄거고
+  컨텐츠 높이만을 가져가는게 자연스러울거라 height 안잡음 */
+}
+
+
+/* FOOTER MENU */
+footer .inner .footer__menu {
+  display: flex;
+}
+
+footer .inner .footer__menu .left {
+  width: 90%;
+  /* 왼쪽 90% 먹게 하기 위해서 */
+}
+
+footer .inner .footer__menu .left .menu {
+  display: flex;
+  /* list 애들 가로로 배치시키기 */
+}
+
+footer .inner .footer__menu .left .menu>li {
+  width: 20%
+    /* 1/5 씩 나눠가질 수 있도록 */
+    /* 넓이는 부모한테서 받아오는 것임 left 라는 공간 90% 받아와서
+    90%의 공간 각각 나눠서 가짐*/
+}
+
+footer .inner .footer__menu .left .menu>li>ul {}
+
+footer .inner .footer__menu .left .menu>li>ul>a {
+  /* a태그는 기본적으로 인라인 요소라 마진, 패딩 안먹기 때문에
+  block 처리 먼저 해준 것임 */
+  display: block;
+  font-size: 14px;
+  color: white;
+  margin: 10px 0;
+  /* 패딩을 줘도 되고, 마진을 줘도 됨 */
+}
+
+footer .inner .footer__menu .left .menu>li>ul>li {
+  font-size: 12px;
+  color: white;
+  padding: 5px 0;
+  cursor: pointer;
+}
+
+footer .inner .footer__menu .left .menu>li>ul>a:hover,
+footer .inner .footer__menu .left .menu>li>ul>li:hover {
+  text-decoration: underline;
+}
+
+footer .inner .footer__menu .right {
+  /* display: flex; */
+  width: 10%;
+  /* justify-content: flex-end; */
+  /* flex 속성을 줘야 이게 먹음 */
+  /* 로고 그림이 늘어남 */
+  /* align-item: flex-start; */
+  /* 기본값이 수직 정렬 align-item: stretch 정렬이기 때문에 */
+}
+
+footer .inner .footer__menu .right img {
+  float: right;
+  /* 글과 사진이 겹쳐있을 때 쓰면 좋음.
+  요즘은 거의 쓸 일 없지만, 오래된 속성도 아쉬면 ..
+  flex는 justify 어쩌구 3줄씩 쓰고 해야 하니까 쉬운 속성임 */
+  /* 사진 위치를 결정해주는 float 속성 (float이 기본값이 left 임)
+  자기가 존재할 수 있는 공간에서 right 주면 오른쪽으로 감 */
+}
+
+/* FOOTER SUB-MENU */
+footer .inner .footer__sub-menu {
+  padding: 30px 50px 10px;
+}
+
+footer .inner .footer__sub-menu>ul {
+  display: flex;
+  justify-content: space-between;
+  /* 아이템들이 양 끝에 붙어있다. 하면 space-between
+  주축에 대한 것. flex 방향 가로축. 그래서 justify-content로 함 */
+  /* flex-wrap 이 no wrap 이니까 잘 먹어줌 */
+}
+
+footer .inner .footer__sub-menu>ul>li {
+  font-size: 12px;
+  color: #cccccc;
+}
+
+/* .contour가 클래스 선택자라 바로 위 li 태그를 이길 것임 */
+footer .inner .footer__sub-menu>ul>li.contour {
+  color: #999;
+}
+
+/* 실제 스타벅스에서는 가상요소선택자로 활용했을거임.
+강사님이 한 건 간단하게 할 수 있는 방법도 있는걸로ㅣ이런거 써서 보여줌. */
+
+footer .inner .footer__sub-menu>ul>li:first-child>a {
+  /* a태그까지 지정을 해야 색이 변함 */
+  color: #00b050;
+  font-weight: bold;
+}
+
+footer .inner .footer__sub-menu>ul>li>a {
+  color: #cccccc;
+  /* 이거 안먹이면 링크처럼 보라색 글자로 변함 */
+}
+
+footer .inner .footer__sub-menu>ul>li>a:hover {
+  text-decoration: underline;
+}
+
+/* 버튼 방법은 flex 아니고 라떼버전으로 함 */
+/* 글자니까 중앙정렬 된다. 가로로 쌓이니까 알아서 중앙정렬 될 것임 */
+/* FOOTER BTN */
+footer .inner .footer__btn {
+  text-align: center;
+  /* 글자요소는 얘가 제일 잘먹힘. 블록 요소는 당연히 안됨.
+  얘가 정렬하고자 하는 대상이 inline인지 inline-block인지 파악해야 함.
+  block 인 아이들은 flex 쓰는게 정신 건강에 이로움. */
+}
+
+footer .inner .footer__btn .btn {
+  margin-right: 5px;
+  /* COMMON 영역에 inline-block 있기 때문에 가능한 부분 */
+  font-size: 12px;
+}
+
+footer .inner .footer__btn .btn:hover {
+  /* 얘는 배경색 하얗게 안차서 다시 hover 먹여 바꿔줌 */
+  background-color: transparent;
+  text-decoration: underline;
+  color: white;
+  /* 글자 검정색으로도 변경되서 white로 바꿔줌 */
+  /* 글로벌 스타일은 하나만 선택되는데 여러개 클래스 선택자 겹쳐져서
+  점수 합산 합산 해서 이기게 되는 구조임. */
+}
+
+/* FOOTER COPYRIGHT */
+footer .inner .footer__copyright {
+  color: #999;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+footer .inner .footer__copyright>p {
+  line-height: 30px;
+  /* 줄 간격이 늘어나면서 여유있게 배치되는 효과 가져옴 */
 }
