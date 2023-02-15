@@ -308,7 +308,7 @@ header .badges {
 absolute 처리해서 뷰포트를 따라다님!
 부모 요소 계산 잘 해놓고, 얘는 따라다녀라 하면 편리함 */
 
-header. .badges .badge {
+header .badges .badge {
   cursor: pointer;
 }
 
