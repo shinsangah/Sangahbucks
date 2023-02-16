@@ -209,10 +209,13 @@ header .inner .sub-menu .search>input:focus::placeholder {
 header .inner .sub-menu .search>.material-symbols-outlined {
   position: absolute;
   margin: auto;
-  right: 3px;
+  right: -1px;
+  width: 36px;
+  text-align: center;
   top: 0;
   bottom: 0;
   height: 24px;
+  cursor: pointer;
 }
 
 /* MAIN MENU */
@@ -454,10 +457,20 @@ top,left, bottom 움직여서 이미지를 잘 맞추는게 중요한 기준 */
   font-size: 16px;
 }
 
-.notice .notice-line .inner .inner__left div {
+/* 실제로 swiper 영역을 담당했던 영역 */
+.notice .notice-line .inner .inner__left .swiper {
   position: absolute;
+  height: 62px;
   left: 80px;
   font-size: 14px;
+}
+
+/* 한장 나가고 사라지고 한장 나가고 사라지고 할 것임 */
+
+.notice .notice-line .inner .inner__left .swiper .swiper-wrapper .swiper-slide {
+  height: 62px;
+  /* notice 라인을 가득 채울거라 62px 줌 */
+  line-height: 62px;
 }
 
 .notice .notice-line .inner .inner__left a {

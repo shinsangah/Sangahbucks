@@ -9,27 +9,40 @@ const searchIconEl = searchEl.querySelector("span");
 let isFocused = false;
 // 포커스가 갔는지 전역변수로써 확인
 
-// searchEl div 요소임, 검색창 주변 클릭하면 focus 되게!
-searchEl.addEventListener("click", function () {
-  if (isFocused) {
-    searchInputEl.blur();
-    isFocused = false;
-    // searchInputEl.focus();
+let isNotSearchClick = false;
+
+document.addEventListener("click", function (e) {
+  if (!e.target.classList.contains("material-symbols-outlined")) {
+    isNotSearchClick = true;
   } else {
-    searchInputEl.focus();
-    isFocused = true;
+    isNotSearchClick = false;
   }
-});
-// 한번 더 눌러야 다시 됨 (장경은씨 껄로 함)
+})
 
-// focus 생길 때, '통합검색' 뜨게
-searchInputEl.addEventListener("focus", function () {
-  searchInputEl.setAttribute("placeholder", "통합검색");
-});
+searchIconEl.addEventListener("click", function () {
+  if (!searchEl.classList.contains("active")) {
+    searchEl.classList.add("active");
+    searchInputEl.focus();
+    searchInputEl.setAttribute("placeholder", "통합검색");
+  } // 코드 이렇게 짜면 안되고 UX 바꿔야 함. 안좋은거임.
+  else if (isNotSearchClick) {
+    searchEl.focus();
+    searchInputEl.setAttribute("placeholder", "통합검색");
+    isNotSearchClick = false;
+  } else {
+    searchEl.classList.remove("active");
+  }
+})
 
-// focus 사라질 때 (검색창 외부 클릭할 때), '통합검색' 사라지게
-// blur 기능 흐려지는 것 / "" 빈 요소로 만들어줌
 searchInputEl.addEventListener("blur", function () {
-  searchInputEl.setAttribute("placeholder", "")
-});
+  searchInputEl.setAttribute("placeholder", "통합검색");
+})
 
+
+// SWIPER
+// SWIPER NOTICE
+const swiperNotice = new Swiper(".notice .inner .inner__left .swiper", {
+  direction: "vertical",
+  loop: true,
+  autoplay: true,
+});

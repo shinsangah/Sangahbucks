@@ -41,15 +41,16 @@
   <!-- RESET CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
 
-  <!-- MAIN CSS -->
-  <link rel="stylesheet" href="./css/main.css" />
-
   <!-- JAVASCRIPT -->
   <!-- SWIPER -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 
-  <!-- MAIN -->
+  <!-- MAIN CSS -->
+  <link rel="stylesheet" href="./css/main.css" />
+  <!-- SWIPER 아래에 두어야 함 -->
+
+  <!-- MAIN JAVASCRIPT-->
   <script defer src="./starbucks js/main.js"></script>
 </head>
 
@@ -413,7 +414,16 @@
       <div class="inner">
         <div class="inner__left">
           <h1>공지사항</h1>
-          <div>탄소 중립 포인트제 실천 안내</div>
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">탄소중립실천포인트제 도입 안내</div>
+              <div class="swiper-slide">영상정보처리기기 운영방침 / 위치정보 이용약관 / 개인정보처리방침 이용약관 개정 안내</div>
+              <div class="swiper-slide">시스템 개선 및 서비스 점검 안내</div>
+              <div class="swiper-slide">설 연휴 스타벅스 딜리버리 운영 안내</div>
+              <div class="swiper-slide">스타벅스 카드 온라인 재충전 / e-Gift Card 구매 가능 금액 안내</div>
+            </div>
+          </div>
+          <!-- <div>탄소 중립 포인트제 실천 안내</div> -->
           <!-- a나 p로 써도 되는데 swipe 라는 class 를 만들건데
           사용법이 div로 해야되기 때문에 div 로 만든다. -->
           <a href="#">
