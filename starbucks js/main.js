@@ -51,19 +51,19 @@ const swiperNotice = new Swiper(".notice .inner .inner__left .swiper", {
 const swiperPromotion = new Swiper(".notice .promotion .swiper", {
   direction: "horizontal",
   // 수평방향은 기본적으로 잘 될건데, 써주는게 좋겠음
-  slidesPerView: 3,
-  spaceBetween: 10,
-  centeredSlides: true,
+  slidesPerView: 3, // 한 번에 보여줄 아이템 수
+  spaceBetween: 10, // 아이템 간 거리
+  centeredSlides: true, // 슬라이드 센터 여부
   // 앞에 보여줄건지 마지막에 보여줄건지
   loop: true,
-  // 무한히 보여줄 것임
-  autoplay: { // 자동으로 회전됨
+  // 무한히 보여줄 것임. 루프 여부
+  autoplay: { // 자동으로 회전, 변경 시간 설정
     delay: 1000,
     disabledinInteraction: false, // false 주면, 마우스 누르고 있으면 멈추고 있는 기능
   },
   pagination: {
-    el: ".promotion .swiper-pagination",
-    clickable: true,
+    el: ".promotion .swiper-pagination", // pagination을 할 엘리먼트 클래스 설정
+    clickable: true, // 클릭 가능 여부 
   },
   navigation: {  // 버튼 기능 동작 지정해준 것임!
     prevEl: ".promotion .swiper-button-prev",

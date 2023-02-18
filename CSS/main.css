@@ -820,6 +820,7 @@ top,left, bottom 움직여서 이미지를 잘 맞추는게 중요한 기준 */
   /* 동일한 시간대에 맞아야 delay가 없어질 것임 */
 }
 
+/* 일치선택자 elsavador.animate 붙여서 선택 */
 /* active -> animate 로 변경함 스크롤 먹이려고 */
 .elsalvador.animate .inner img.elsalvador__item,
 .elsalvador.animate .inner .elsalvador__contents {
